@@ -22,7 +22,7 @@ class Vk:
     self.vk = VkApi(
       login         = config.VK_LOGIN,
       password      = config.VK_PASSWORD,
-      token         = config.VK_CLIENT_SECRET,
+      token         = config.VK_SERVICE_TOKEN,
       scope         = config.VK_AUTH_SCOPE,
     )
     self.vk.auth()
