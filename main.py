@@ -1,6 +1,7 @@
 #!python3
 # Errors:
 # - max 50 posts per day
+
 import config
 import copy
 import os
@@ -13,7 +14,7 @@ from vk import Vk
 
 
 
-vk = Vk()
+#  vk = Vk()
 tg = telebot.TeleBot(config.TG_TOKEN)
 
 update_counter = config.TG_UPDATE_COUNT
@@ -28,6 +29,7 @@ mediagroups    = {}
 # Ну надо же что-то вывести, когда бот стартует?
 @tg.message_handler(commands=['start'])
 def start(m, res=False):
+  print('Send message')
   tg.send_message(m.chat.id, 'Started!')
 
 
@@ -151,7 +153,7 @@ def check_mediagroup():
 # ~~~~~                              MAIN                              ~~~~~ #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 def main():
-  threading.Thread(target=check_mediagroup).start()
+  #  threading.Thread(target=check_mediagroup).start()
   tg.polling(none_stop=True, interval=0)
   exit(0)
 
